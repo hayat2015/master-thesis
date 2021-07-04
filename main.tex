@@ -1,14 +1,14 @@
 \documentclass[a4paper,12pt]{report}
 
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T1]{fontenc}
 \usepackage{lmodern} % For changing the font
-\usepackage{subcaption}
+%\usepackage{subcaption}
 
 \usepackage{graphicx} % For including images
 \usepackage{wrapfig} % For using images wrapped inside some text
-\usepackage{hyperref} % For adding metadata information under \hypersetup
-\usepackage{float} % The float package provides the H option to floating environments, which completely stops them from floating.
+\usepackage{hyperref} % For adding hyper reference links
+%\usepackage{float} % The float package provides the H option to floating environments, which completely stops them from floating.
 
 % \PrerenderUnicode{é} % This is for fixing the issue or having index/header 'é' error
 
@@ -27,10 +27,10 @@ pdfkeywords={Blockchain, Decentralization, Electronic electoral system, Electron
 
 \usepackage{makeidx}
 \makeindex
-\usepackage[sort=use]{glossaries}
+\usepackage[toc,acronym]{glossaries}
 
-%\input{Parts/glossary.tex}
-%\input{Parts/acronyms.tex}
+\input{parts/glossary.tex}
+\input{parts/acronyms.tex}
 
 \begin{document}
 
@@ -41,11 +41,12 @@ pdfkeywords={Blockchain, Decentralization, Electronic electoral system, Electron
 \listoffigures
 %\listoftables --- until now I haven't used any tables
 \printindex
-\printglossary[type=main, title={Glossaire et acronymes}]
+\printglossary[type=\acronymtype]
+\printglossary
 
 \input{parts/abstract.tex}
 \input{parts/chapter1.tex}
-%\input{Parts/chapter2.tex}
+\input{parts/chapter2.tex}
 %\input{Parts/chapter3.tex}
 %\input{Parts/conclusion.tex}
 
