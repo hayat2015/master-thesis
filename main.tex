@@ -27,10 +27,10 @@ pdfkeywords={Blockchain, Decentralization, Electronic electoral system, Electron
 
 \usepackage{makeidx}
 \makeindex
-\usepackage[toc,acronym]{glossaries}
+\usepackage[toc]{glossaries}
 
 \input{parts/glossary.tex}
-\input{parts/acronyms.tex}
+%\input{parts/acronyms.tex}
 
 \begin{document}
 
@@ -41,14 +41,13 @@ pdfkeywords={Blockchain, Decentralization, Electronic electoral system, Electron
 \listoffigures
 %\listoftables --- until now I haven't used any tables
 \printindex
-\printglossary[type=\acronymtype]
 \printglossary
 
 \input{parts/abstract.tex}
 \input{parts/chapter1.tex}
 \input{parts/chapter2.tex}
-%\input{Parts/chapter3.tex}
-%\input{Parts/conclusion.tex}
+\input{parts/chapter3.tex}
+\input{parts/conclusion.tex}
 
 
 \bibliographystyle{plain}
