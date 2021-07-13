@@ -122,9 +122,13 @@ The process of casting a vote is initiated when a voter first enters a polling s
 
 \section{Results}
 
-In this section we will go through the results that were obtained by this investigatory efforts and showcase the various components of the proof-of-concept that was developed.
+To validate the proposed system, we implemented various compoenents of the proof-of-concept using various technologies highlighted in previous sections, in this section we will go through the results that were obtained by this investigatory efforts.
 
 \subsection{Admin dashboard}
+
+The admin dashboard is a web application developed using React JS framework and the UI components library Shards\cite{ShardsReact}, it serves as the starting point of every election event. The admin is impelled to use this unique platform to create, launch and monitor a voting event.
+
+The access to this platform should be very restriced, as well as the ethereum account associated with it, being conceptualized to be the sole orchastrator of the whole event, this application (and account) has various priviliges granted to from the deployed smart contracts, things like creating an event, terminating an event, granting voting authorizations and viewing results.
 
 \begin{figure}[H]
 	\centering
@@ -132,11 +136,15 @@ In this section we will go through the results that were obtained by this invest
 		\caption{{\footnotesize Election overview tab of admin dashboard}}
 \end{figure}
 
+The election overview tab is the main tab where the instant monitoring of ongoing election event is done, using various forms of charts and indicators an admin can easily stay up to date with everything occuring on the ongoing event.
+
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=14cm]{images/chapter3/admin_2.png}
 		\caption{{\footnotesize Event creation tab of the admin dashboard}}
 \end{figure}
+
+Event creation tab holds an event creation form where the admin is provided with inputs fields to fill, information like the event title, description and beginning and end dates along with candidates details are all submitted through this form.
 
 \begin{figure}[H]
 	\centering
@@ -144,32 +152,43 @@ In this section we will go through the results that were obtained by this invest
 		\caption{{\footnotesize Logs tab of the admin dashboard}}
 \end{figure}
 
+The logs tab presents detailed view of the vote casting process history, unlike the election overview tab, this part of the application does not obtain its data from the blockchain ledger, but from the centralized backend that stores log information of voters seperately from the content of their vote.
+
 \subsection{End-user (voter) application}
+
+The voter application lives on the voting machine, although that for the sake of our proof-of-concept it was built as a web application, we believe that in a real world scenario a desktop (native) application with touch screen capabilities would serve the purpose very well.
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=14cm]{images/chapter3/voter_2.png}
-		\caption{{\footnotesize Election overview tab of admin dashboard}}
+		\caption{{\footnotesize Voter application authentication screen}}
 \end{figure}
+
+The voter is first faced with an authentification screen prompting her to provide her national identification number (although in a real world scenario we would opt for electronic ID scanners) and to also scan her fingerprint, in case the voter is an authorized voter that hasn't for example voted before that application allows the user to proceed
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=14cm]{images/chapter3/voter_3.png}
-		\caption{{\footnotesize Event creation tab of the admin dashboard}}
+		\caption{{\footnotesize Choices presentation screen}}
 \end{figure}
+
+Next, the voter is presented with the choices to pick from.
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=14cm]{images/chapter3/voter_4.png}
-		\caption{{\footnotesize Logs tab of the admin dashboard}}
+		\caption{{\footnotesize Choice submitting screen}}
 \end{figure}
+
+After a choice is selected, s submit button is enabled
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=14cm]{images/chapter3/voter_5.png}
-		\caption{{\footnotesize Logs tab of the admin dashboard}}
+		\caption{{\footnotesize Vote casting feedback screen}}
 \end{figure}
-\newpage
+
+Lastly a feedback screen is displayed, then user is prompted to logout instantly at the end of the voting process or it will logout automatically after a certain amount of time.
 
 \subsection{Smart contract}
 
@@ -179,7 +198,56 @@ In this section we will go through the results that were obtained by this invest
 		\caption{{\footnotesize Voting smart contract written in solidity language}}
 \end{figure}
 
-\subsection{Tests}
-To ensure the proof-of-concept built actually delivered the results we initially intended to achieve a few tests were conducted.
+\subsubsection{Structres}
 
+Structs are custom defined types that can group several variables
 
+\begin{list}{}{}
+\item \textbf{Candidate} is the definition of a struct type representing the information that will stored about a single candidate on the smart contract's state
+\item \textbf{Station} represents the information that will be stored about a single polling station or (a single voting machine, in case each voting machine has a seperate ethereum account and address)
+\end{list}
+
+\subsubsection{State variables}
+
+State variables are variables whose values are permanently stored in contract storage.
+
+\begin{list}{}{}
+\item \textbf{owner} a state variable of type address that holds the addresses of the account that owns the smart contract, being the admin, the holder of that ethereum address has extra priviliges when interacting with the smart contract. 
+\item \textbf{electionGoing} a state variable of type boolean that holds either true when an election event is taking place or false when there's none.
+\item \textbf{candidates} an array of the struct type predefined Candidate that holds the list of choices a voter needs to choose from.
+\item \textbf{stations} an array of the struct type predefined Station that holds the list of polling stations allowed to cast a vote in this ongoing voting event.
+\end{list}
+
+\subsubsection{Event}
+
+Solidity events give an abstraction on top of the EVM’s logging functionality. Applications can subscribe and listen to these events through the RPC interface of an Ethereum client.
+
+\begin{list}{}{}
+\item \textbf{ElectionResult} An event that is triggered once a voting event is over and it sends back the final results.
+\end{list}
+
+\subsubsection{Modifiers}
+
+\begin{list}{}{}
+\item \textbf{onlyOwner}
+\item \textbf{onlyAuthorized}
+\item \textbf{onlyWhenFree}
+\end{list}
+
+\subsubsection{Constructor}
+
+\subsubsection{Functions}
+
+\begin{list}{}{}
+\item \textbf{createEvent}
+\end{list}
+
+\begin{list}{}{}
+\item \textbf{createEvent}
+\item \textbf{authorize}
+\item \textbf{vote}
+\item \textbf{currentResult}
+\item \textbf{terminateEvent}
+\end{list}
+
+\subsection{System properties}
