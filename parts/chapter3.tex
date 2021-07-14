@@ -196,7 +196,12 @@ Lastly a feedback screen is displayed, then user is prompted to logout instantly
 	\centering
 		\includegraphics[width=12cm]{images/chapter3/smart-contract.png}
 		\caption{{\footnotesize Voting smart contract written in solidity language}}
+		\label{smart_contract}
 \end{figure}
+
+The smart contract showed in figure \ref{smart_contract} implements our voting contract.
+
+The idea is to create and deploy a smart contract using the account intended to be of the admin, then using the various functions defined the admin can interact with the smart contract to create a voting event and input information about candidates and whatnot.
 
 \subsubsection{Structres}
 
@@ -228,15 +233,23 @@ Solidity events give an abstraction on top of the EVM’s logging functionality.
 
 \subsubsection{Modifiers}
 
+Modifiers can be used to easily change the behaviour of functions by executing a set of intructions prior or after executing a function.
+
 \begin{list}{}{}
-\item \textbf{onlyOwner}
-\item \textbf{onlyAuthorized}
-\item \textbf{onlyWhenFree}
+\item \textbf{onlyOwner} checks whether the account calling the function is the account of the contract owner, and only execute the function if it is the case.
+\item \textbf{onlyAuthorized} checks whether the account calling the function has its address listed among the authorized list of accounts and only execute the function if it is the case.
+\item \textbf{onlyWhenFree} checks if there's an ongoing event prior to executing the function, and only allow for the execution of the function if there's no events taking place.
 \end{list}
 
 \subsubsection{Constructor}
 
+A constructor is an optional function declared with the \textit{constructor} keyword which is executed upon contract creation, and where you can run contract initialisation code.
+
+Our constructor executes one instruction, assigning the address of the account that deployed the contract to the state variable \textit{owner} and granting it the admin privileges.
+
 \subsubsection{Functions}
+
+A function is a block of organized, reusable code that is used to perform a single, related action.
 
 \begin{list}{}{}
 \item \textbf{createEvent}
