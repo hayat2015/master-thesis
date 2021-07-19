@@ -1,5 +1,6 @@
 \chapter{Technical background}
 This chapter presents an overview of the technical concepts involved in the realization of this project, namely the Ethereum Blockchain and Web applications
+
 \section{Ethereum Blockchain}
 Ethereum is a blockchain platform with its own \gls{cryptocurrency}, called Ether (ETH) or Ethereum, and its own programming language, called Solidity. As a blockchain network, Ethereum is a decentralized public ledger for verifying and recording transactions. The network's users can create, publish, monetize, and use applications on the platform, and use its Ether cryptocurrency as payment. Insiders call the decentralized applications on the network "dapps."\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
@@ -10,9 +11,9 @@ Ethereum is a blockchain platform with its own \gls{cryptocurrency}, called Ethe
 	\caption{{\footnotesize Ethereum Blockchain logo}}
 \end{wrapfigure}
 
-Ethereum intends to create an alternative protocol for building decentralized applications, providing a different set of tradeoffs that its creators believe will be very useful for a large class of decentralized applications, with particular emphasis on situations where rapid development time, security for small and rarely used applications, and the ability of different applications to very efficiently interact, are important. Ethereum does this by building what is essentially the ultimate abstract foundational layer: a blockchain with a built-in Turing-complete programming language, allowing anyone to write smart contracts and decentralized applications where they can create their own arbitrary rules for ownership, transaction formats and state transition functions.
+Ethereum intends to create an alternative protocol for building decentralized applications, providing a different set of tradeoffs that its creators believe will be very useful for a large class of decentralized applications, with particular emphasis on situations where rapid development time, security for small and rarely used applications, and the ability of different applications to very efficiently interact, are important. Ethereum does this by building what is essentially the ultimate abstract foundational layer: a blockchain with a built-in Turing-complete programming language, allowing anyone to write smart contracts and decentralized applications where they can create their own arbitrary rules for ownership, transaction formats and state transition functions.\cite{buterinvitalikEthereumWhitePaper2013}
 
-In the Ethereum universe, there is a single, canonical computer (called the Ethereum Virtual Machine, or EVM) whose state everyone on the Ethereum network agrees on. Everyone who participates in the Ethereum network (every Ethereum node) keeps a copy of the state of this computer. Additionally, any participant can broadcast a request for this computer to perform arbitrary computation. Whenever such a request is broadcast, other participants on the network verify, validate, and carry out ("execute") the computation. This causes a state change in the EVM, which is committed and propagated throughout the entire network.
+In the Ethereum universe, there is a single, canonical computer (called the Ethereum Virtual Machine, or EVM) whose state everyone on the Ethereum network agrees on. Everyone who participates in the Ethereum network (every Ethereum node) keeps a copy of the state of this computer. Additionally, any participant can broadcast a request for this computer to perform arbitrary computation. Whenever such a request is broadcast, other participants on the network verify, validate, and carry out ("execute") the computation. This causes a state change in the EVM, which is committed and propagated throughout the entire network.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
 
 \subsection{Accounts}
 In Ethereum, the state is made up of objects called "accounts", with each account having a 20-byte address and state transitions being direct transfers of value and information between accounts. An Ethereum account contains four fields:
@@ -24,7 +25,7 @@ In Ethereum, the state is made up of objects called "accounts", with each accoun
 \item The account's \textbf{storage} (empty by default)
 \end{itemize}
 
-"Ether" is the main internal crypto-fuel of Ethereum, and is used to pay transaction fees. In general, there are two types of accounts: \textbf{externally owned accounts}, controlled by private keys, and \textbf{contract accounts}, controlled by their contract code. An externally owned account has no code, and one can send messages from an externally owned account by creating and signing a transaction; in a contract account, every time the contract account receives a message its code activates, allowing it to read and write to internal storage and send other messages or create contracts in turn.\newpage
+"Ether" is the main internal crypto-fuel of Ethereum, and is used to pay transaction fees. In general, there are two types of accounts: \textbf{externally owned accounts}, controlled by private keys, and \textbf{contract accounts}, controlled by their contract code. An externally owned account has no code, and one can send messages from an externally owned account by creating and signing a transaction; in a contract account, every time the contract account receives a message its code activates, allowing it to read and write to internal storage and send other messages or create contracts in turn\cite{ethereumcommunityEthereumDevelopmentDocumentation}.\newpage
 
 \begin{figure}[h]
 	\centering
@@ -33,7 +34,7 @@ In Ethereum, the state is made up of objects called "accounts", with each accoun
 \end{figure}
 
 \subsection{Transactions}
-An Ethereum transaction refers to an action initiated by an externally-owned account, in other words an account managed by a human, not a contract. For example, if Bob sends Alice 1 ETH, Bob's account must be debited and Alice's must be credited. This state-changing action takes place within a transaction.
+An Ethereum transaction refers to an action initiated by an externally-owned account, in other words an account managed by a human, not a contract. For example, if Bob sends Alice 1 ETH, Bob's account must be debited and Alice's must be credited\cite{ethereumcommunityEthereumDevelopmentDocumentation}. This state-changing action takes place within a transaction.
 
 \begin{figure}[H]
 	\centering
@@ -41,7 +42,7 @@ An Ethereum transaction refers to an action initiated by an externally-owned acc
 		\caption{{\footnotesize Abstract representation of an Ethereum transaction}}
 \end{figure}
 
-Transactions, which change the state of the EVM, need to be broadcast to the whole network. Any node can broadcast a request for a transaction to be executed on the EVM; after this happens, a miner will execute the transaction and propagate the resulting state change to the rest of the network.
+Transactions, which change the state of the EVM, need to be broadcast to the whole network. Any node can broadcast a request for a transaction to be executed on the EVM; after this happens, a miner will execute the transaction and propagate the resulting state change to the rest of the network\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
 Transactions require a fee and must be mined to become valid.
 
@@ -56,7 +57,7 @@ A submitted transaction includes the following information:
 \item \textbf{gasPrice} - the fee the sender pays per unit of gas
 \end{itemize}
 
-Gas is a reference to the computation required to process the transaction by a miner. Users have to pay a fee for this computation. The gasLimit and gasPrice determine the maximum transaction fee paid to the miner (more on gas on later subsections.
+Gas is a reference to the computation required to process the transaction by a miner. Users have to pay a fee for this computation. The gasLimit and gasPrice determine the maximum transaction fee paid to the miner (more on gas on later subsections\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
 \subsection{Gas}
 Gas refers to the unit that measures the amount of computational effort required to execute specific operations on the Ethereum network.
@@ -71,7 +72,7 @@ Since each Ethereum transaction requires computational resources to execute, eac
 
 In essence, gas fees are paid in Ethereum's native currency, ether (ETH). Gas prices are denoted in gwei, which itself is a denomination of ETH - each gwei is equal to 0.000000001 ETH (10-9 ETH). For example, instead of saying that your gas costs 0.000000001 ether, you can say your gas costs 1 gwei.
 
-Gas fees exist because they help keep the Ethereum network secure. By requiring a fee for every computation executed on the network, we prevent actors from spamming the network. In order to prevent accidental or hostile infinite loops or other computational wastage in code, each transaction is required to set a limit to how many computational steps of code execution it can use. The fundamental unit of computation is "gas".
+Gas fees exist because they help keep the Ethereum network secure. By requiring a fee for every computation executed on the network, we prevent actors from spamming the network. In order to prevent accidental or hostile infinite loops or other computational wastage in code, each transaction is required to set a limit to how many computational steps of code execution it can use. The fundamental unit of computation is "gas"\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
 \subsection{Consensus mechanisms}
 When it comes to blockchains like Ethereum, which are in essence distributed databases, the nodes of the network must be able to reach agreement on the current state of the system. This is achieved using consensus mechanisms.
@@ -80,8 +81,7 @@ Consensus mechanisms (also known as consensus protocols or consensus algorithms)
 
 For decades, these mechanisms have been used to establish consensus among database nodes, application servers, and other enterprise infrastructure. In recent years, new consensus protocols have been invented to allow \gls{cryptoeconomic} systems, such as Ethereum, to agree on the state of the network.
 
-A consensus mechanism in a cryptoeconomic system also helps prevent certain kinds of economic attacks. In theory, an attacker can compromise consensus by controlling 51\% of the network. Consensus mechanisms are designed to make this "\gls{51attack}" unfeasible. Different mechanisms are engineered to solve this security problem differently.
-\subsubsection{Types of consensus mechanisms}
+A consensus mechanism in a cryptoeconomic system also helps prevent certain kinds of economic attacks. In theory, an attacker can compromise consensus by controlling 51\% of the network. Consensus mechanisms are designed to make this "\gls{51attack}" unfeasible. Different mechanisms are engineered to solve this security problem differently. Current the ethereum blockchain, like bitcoin, uses a proof-of-work (PoW) consensus mechanism, however ethereum community has plans to upgrade to proof-of-stake (PoS) in the future\cite{ethereumcommunityEthereumDevelopmentDocumentation}. Here's a description of both mechanisms:
 
 \begin{description}
 \item[Proof of work] Proof-of-work is done by miners, who compete to create new blocks full of processed transactions. The winner shares the new block with the rest of the network and earns some freshly minted \gls{ETH}. The race is won by whoever's computer can solve a math puzzle fastest – this produces the cryptographic link between the current block and the block that went before. Solving this puzzle is the work in "proof of work".
@@ -92,7 +92,7 @@ A consensus mechanism in a cryptoeconomic system also helps prevent certain kind
 
 A dapp has its backend code running on a decentralized peer-to-peer network. Contrast this with an app where the backend code is running on centralized servers.
 
-A dapp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage.
+A dapp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
 
 \begin{description}
 \item[Decentralized] means they are independent, and no one can control them as a group.
@@ -109,16 +109,31 @@ A dapp can have frontend code and user interfaces written in any language (just 
 
 \subsection{Smart contracts}
 
-A smart contract is simply put a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. They run exactly as programmed. Once they are deployed on the network they can't be changed. Dapps can be decentralized because they are controlled by the logic written into the contract, not an individual or company.
+The term smart contract refers to immutable computer programs that run deterministically in the context of an Ethereum Virtual Machine as part of the Ethereum network protocol\cite{antonopoulosMasteringEthereumBuilding2018}.
 
-Smart contracts are a type of Ethereum account. This means they have a balance and they can send transactions over the network. User accounts can then interact with a smart contract by submitting transactions that execute a function defined on the smart contract. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code.\medskip
+A smart contract is simply put a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. They run exactly as programmed. Once they are deployed on the network they can't be changed. Dapps can be decentralized because they are controlled by the logic written into the contract, not an individual or a company\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
-Ethereum has developer-friendly languages for writing smart contracts:
+in Ethereum are a type of Ethereum account. This means they have a balance and they can send transactions over the network. User accounts can then interact with a smart contract by submitting transactions that execute a function defined on the smart contract. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code.
 
-\begin{itemize}
-\item Solidity
-\item Vyper 
-\end{itemize}
+Ethereum has two turing complete and developer-friendly languages for writing smart contracts: (Solidity, Vyper)
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=10cm]{images/chapter2/smart-contract-example.png}
+		\caption{{\footnotesize Example of a solidity smart contract\cite{antonopoulosMasteringEthereumBuilding2018}}}
+\end{figure}
+
+\subsubsection{Life cycle of a smart contract}
+
+Smart contracts are typically written in a high-level language, such as Solidity. But in order to run, they must be compiled to the low-level bytecode that runs in the EVM. Once compiled, they are deployed on the Ethereum platform using a special contract creation transaction, which is identified as such by being sent to the special contract creation address, namely 0x0. Each contract is identified by an Ethereum address, which is derived from the contract creation transaction as a function of the originating account and nonce. The Ethereum address of a contract can be used in a transaction as the recipient, sending funds to the contract or calling one of the contract’s functions. Note that, unlike with EOAs, there are no keys associated with an account created for a new smart contract. The contract creator doesn't get any special privileges at the protocol level (although you can explicitly code them into the smart contract). You certainly don’t receive the private key for the contract account, which in fact does not exist—we can say that smart contract accounts own themselves\cite{antonopoulosMasteringEthereumBuilding2018}.
+
+Importantly, contracts only run if they are called by a transaction. All smart contracts in Ethereum are executed, ultimately, because of a transaction initiated from an EOA. A contract can call another contract that can call another contract, and so on, but the first contract in such a chain of execution will always have been called by a transaction from an EOA. Contracts never run “on their own” or “in the background.” Contracts effectively lie dormant until a transaction triggers execution, either directly or indirectly as part of a chain of contract calls. It is also worth noting that smart contracts are not executed "in parallel" in any sense—the Ethereum world computer can be considered to be a single-threaded machine\cite{antonopoulosMasteringEthereumBuilding2018}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=12cm]{images/chapter2/smart-contract-lifecycle.png}
+		\caption{{\footnotesize Smart contract lifecycle\cite{alvaresBlockchainBasedSolutionsUAVAssisted2021}}}
+\end{figure}
 
 \section{Web Applications}
 
