@@ -2,7 +2,7 @@
 This chapter presents an overview of the technical concepts involved in the realization of this project, namely the Ethereum Blockchain and Web applications
 
 \section{Ethereum Blockchain}
-Ethereum is a blockchain platform with its own \gls{cryptocurrency}, called Ether (ETH) or Ethereum, and its own programming language, called Solidity. As a blockchain network, Ethereum is a decentralized public ledger for verifying and recording transactions. The network's users can create, publish, monetize, and use applications on the platform, and use its Ether cryptocurrency as payment. Insiders call the decentralized applications on the network "dapps."\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
+Ethereum is a Blockchain platform with its own \gls{cryptocurrency}, called Ether (ETH) or Ethereum, and its own programming language, called Solidity. As a Blockchain network, Ethereum is a decentralized public ledger for verifying and recording transactions. The network's users can create, publish, monetize, and use applications on the platform, and use its Ether cryptocurrency as payment. Insiders call the decentralized applications on the network "dapps."\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
 \begin{wrapfigure}[10]{r}{4cm}
 	\vspace{-10pt}
@@ -11,7 +11,7 @@ Ethereum is a blockchain platform with its own \gls{cryptocurrency}, called Ethe
 	\caption{{\footnotesize Ethereum Blockchain logo}}
 \end{wrapfigure}
 
-Ethereum intends to create an alternative protocol for building decentralized applications, providing a different set of tradeoffs that its creators believe will be very useful for a large class of decentralized applications, with particular emphasis on situations where rapid development time, security for small and rarely used applications, and the ability of different applications to very efficiently interact, are important. Ethereum does this by building what is essentially the ultimate abstract foundational layer: a blockchain with a built-in Turing-complete programming language, allowing anyone to write smart contracts and decentralized applications where they can create their own arbitrary rules for ownership, transaction formats and state transition functions.\cite{buterinvitalikEthereumWhitePaper2013}
+Ethereum intends to create an alternative protocol for building decentralized applications, providing a different set of tradeoffs that its creators believe will be very useful for a large class of decentralized applications, with particular emphasis on situations where rapid development time, security for small and rarely used applications, and the ability of different applications to very efficiently interact, are important. Ethereum does this by building what is essentially the ultimate abstract foundational layer: a Blockchain with a built-in Turing-complete programming language, allowing anyone to write smart contracts and decentralized applications where they can create their own arbitrary rules for ownership, transaction formats and state transition functions.\cite{buterinvitalikEthereumWhitePaper2013}
 
 In the Ethereum universe, there is a single, canonical computer (called the Ethereum Virtual Machine, or EVM) whose state everyone on the Ethereum network agrees on. Everyone who participates in the Ethereum network (every Ethereum node) keeps a copy of the state of this computer. Additionally, any participant can broadcast a request for this computer to perform arbitrary computation. Whenever such a request is broadcast, other participants on the network verify, validate, and carry out ("execute") the computation. This causes a state change in the EVM, which is committed and propagated throughout the entire network.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
 
@@ -75,13 +75,13 @@ In essence, gas fees are paid in Ethereum's native currency, ether (ETH). Gas pr
 Gas fees exist because they help keep the Ethereum network secure. By requiring a fee for every computation executed on the network, we prevent actors from spamming the network. In order to prevent accidental or hostile infinite loops or other computational wastage in code, each transaction is required to set a limit to how many computational steps of code execution it can use. The fundamental unit of computation is "gas"\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
 \subsection{Consensus mechanisms}
-When it comes to blockchains like Ethereum, which are in essence distributed databases, the nodes of the network must be able to reach agreement on the current state of the system. This is achieved using consensus mechanisms.
+When it comes to Blockchains like Ethereum, which are in essence distributed databases, the nodes of the network must be able to reach agreement on the current state of the system. This is achieved using consensus mechanisms.
 
 Consensus mechanisms (also known as consensus protocols or consensus algorithms) allow distributed systems (networks of computers) to work together and stay secure.
 
 For decades, these mechanisms have been used to establish consensus among database nodes, application servers, and other enterprise infrastructure. In recent years, new consensus protocols have been invented to allow \gls{cryptoeconomic} systems, such as Ethereum, to agree on the state of the network.
 
-A consensus mechanism in a cryptoeconomic system also helps prevent certain kinds of economic attacks. In theory, an attacker can compromise consensus by controlling 51\% of the network. Consensus mechanisms are designed to make this "\gls{51attack}" unfeasible. Different mechanisms are engineered to solve this security problem differently. Current the ethereum blockchain, like bitcoin, uses a proof-of-work (PoW) consensus mechanism, however ethereum community has plans to upgrade to proof-of-stake (PoS) in the future\cite{ethereumcommunityEthereumDevelopmentDocumentation}. Here's a description of both mechanisms:
+A consensus mechanism in a cryptoeconomic system also helps prevent certain kinds of economic attacks. In theory, an attacker can compromise consensus by controlling 51\% of the network. Consensus mechanisms are designed to make this "\gls{51attack}" unfeasible. Different mechanisms are engineered to solve this security problem differently. Current the Ethereum Blockchain, like bitcoin, uses a proof-of-work (PoW) consensus mechanism, however Ethereum community has plans to upgrade to proof-of-stake (PoS) in the future\cite{ethereumcommunityEthereumDevelopmentDocumentation}. Here's a description of both mechanisms:
 
 \begin{description}
 \item[Proof of work] Proof-of-work is done by miners, who compete to create new blocks full of processed transactions. The winner shares the new block with the rest of the network and earns some freshly minted \gls{ETH}. The race is won by whoever's computer can solve a math puzzle fastest – this produces the cryptographic link between the current block and the block that went before. Solving this puzzle is the work in "proof of work".
@@ -98,7 +98,7 @@ A dapp can have frontend code and user interfaces written in any language (just 
 \item[Decentralized] means they are independent, and no one can control them as a group.
 \item[Deterministic] they perform the same function irrespective of the environment they are executed.
 \item[Turing complete] which means given the required resources, the dapp can perform any action.
-\item[Isolated] which means they are executed in a virtual environment known as Ethereum Virtual Machine so that if the smart contract happens to have a bug, it won’t hamper the normal functioning of the blockchain network.
+\item[Isolated] which means they are executed in a virtual environment known as Ethereum Virtual Machine so that if the smart contract happens to have a bug, it won’t hamper the normal functioning of the Blockchain network.
 \end{description}
 
 \begin{figure}[H]
@@ -111,7 +111,7 @@ A dapp can have frontend code and user interfaces written in any language (just 
 
 The term smart contract refers to immutable computer programs that run deterministically in the context of an Ethereum Virtual Machine as part of the Ethereum network protocol\cite{antonopoulosMasteringEthereumBuilding2018}.
 
-A smart contract is simply put a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. They run exactly as programmed. Once they are deployed on the network they can't be changed. Dapps can be decentralized because they are controlled by the logic written into the contract, not an individual or a company\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
+A smart contract is simply put a program that runs on the Ethereum Blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum Blockchain. They run exactly as programmed. Once they are deployed on the network they can't be changed. Dapps can be decentralized because they are controlled by the logic written into the contract, not an individual or a company\cite{ethereumcommunityEthereumDevelopmentDocumentation}.
 
 in Ethereum are a type of Ethereum account. This means they have a balance and they can send transactions over the network. User accounts can then interact with a smart contract by submitting transactions that execute a function defined on the smart contract. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code.
 
