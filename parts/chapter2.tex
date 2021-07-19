@@ -25,7 +25,7 @@ In Ethereum, the state is made up of objects called "accounts", with each accoun
 \item The account's \textbf{storage} (empty by default)
 \end{itemize}
 
-"Ether" is the main internal crypto-fuel of Ethereum, and is used to pay transaction fees. In general, there are two types of accounts: \textbf{externally owned accounts}, controlled by private keys, and \textbf{contract accounts}, controlled by their contract code. An externally owned account has no code, and one can send messages from an externally owned account by creating and signing a transaction; in a contract account, every time the contract account receives a message its code activates, allowing it to read and write to internal storage and send other messages or create contracts in turn\cite{ethereumcommunityEthereumDevelopmentDocumentation}.\newpage
+"Ether" is the main internal crypto-fuel of Ethereum, and is used to pay transaction fees. In general, there are two types of accounts: \textbf{externally owned accounts}, controlled by private keys, and \textbf{contract accounts}, controlled by their contract code. An externally owned account has no code, and one can send messages from an externally owned account by creating and signing a transaction; in a contract account, every time the contract account receives a message its code activates, allowing it to read and write to internal storage and send other messages or create contracts in turn\cite{buterinvitalikEthereumWhitePaper2013}.\newpage
 
 \begin{figure}[h]
 	\centering
@@ -84,8 +84,8 @@ For decades, these mechanisms have been used to establish consensus among databa
 A consensus mechanism in a cryptoeconomic system also helps prevent certain kinds of economic attacks. In theory, an attacker can compromise consensus by controlling 51\% of the network. Consensus mechanisms are designed to make this "\gls{51attack}" unfeasible. Different mechanisms are engineered to solve this security problem differently. Current the Ethereum Blockchain, like bitcoin, uses a proof-of-work (PoW) consensus mechanism, however Ethereum community has plans to upgrade to proof-of-stake (PoS) in the future\cite{ethereumcommunityEthereumDevelopmentDocumentation}. Here's a description of both mechanisms:
 
 \begin{description}
-\item[Proof of work] Proof-of-work is done by miners, who compete to create new blocks full of processed transactions. The winner shares the new block with the rest of the network and earns some freshly minted \gls{ETH}. The race is won by whoever's computer can solve a math puzzle fastest – this produces the cryptographic link between the current block and the block that went before. Solving this puzzle is the work in "proof of work".
-\item[Proof of stake] Proof-of-stake is done by validators who have staked ETH to participate in the system. A validator is chosen at random to create new blocks, share them with the network and earn rewards. Instead of needing to do intense computational work, you simply need to have staked your ETH in the network. This is what incentivises healthy network behaviour.
+\item[1. Proof of work] Proof-of-work is done by miners, who compete to create new blocks full of processed transactions. The winner shares the new block with the rest of the network and earns some freshly minted \gls{ETH}. The race is won by whoever's computer can solve a math puzzle fastest – this produces the cryptographic link between the current block and the block that went before. Solving this puzzle is the work in "proof of work".
+\item[2. Proof of stake] Proof-of-stake is done by validators who have staked ETH to participate in the system. A validator is chosen at random to create new blocks, share them with the network and earn rewards. Instead of needing to do intense computational work, you simply need to have staked your ETH in the network. This is what incentivises healthy network behaviour.
 \end{description}
 
 \subsection{Dapps}
