@@ -13,7 +13,7 @@ Ethereum is a Blockchain platform with its own \gls{cryptocurrency}, called Ethe
 
 Ethereum intends to create an alternative protocol for building decentralized applications, providing a different set of tradeoffs that its creators believe will be very useful for a large class of decentralized applications, with particular emphasis on situations where rapid development time, security for small and rarely used applications, and the ability of different applications to very efficiently interact, are important. Ethereum does this by building what is essentially the ultimate abstract foundational layer: a Blockchain with a built-in Turing-complete programming language, allowing anyone to write smart contracts and decentralized applications where they can create their own arbitrary rules for ownership, transaction formats and state transition functions.\cite{buterinvitalikEthereumWhitePaper2013}
 
-In the Ethereum universe, there is a single, canonical computer (called the Ethereum Virtual Machine, or EVM) whose state everyone on the Ethereum network agrees on. Everyone who participates in the Ethereum network (every Ethereum node) keeps a copy of the state of this computer. Additionally, any participant can broadcast a request for this computer to perform arbitrary computation. Whenever such a request is broadcast, other participants on the network verify, validate, and carry out ("execute") the computation. This causes a state change in the EVM, which is committed and propagated throughout the entire network.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
+In the Ethereum universe, there is a single, canonical computer (called the Ethereum Virtual Machine, or EVM) whose state everyone on the Ethereum network agrees on. Everyone who participates in the Ethereum network (every Ethereum node) keeps a copy of the state of this computer. Additionally, any participant can broadcast a request for this computer to perform arbitrary computation. Whenever such a request is broadcast, other participants on the network verify, validate and carry out ("execute") the computation. This causes a state change in the EVM, which is committed and propagated throughout the entire network.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
 
 \subsection{Accounts}
 In Ethereum, the state is made up of objects called "accounts", with each account having a 20-byte address and state transitions being direct transfers of value and information between accounts. An Ethereum account contains four fields:
@@ -79,7 +79,7 @@ When it comes to Blockchains like Ethereum, which are in essence distributed dat
 
 Consensus mechanisms (also known as consensus protocols or consensus algorithms) allow distributed systems (networks of computers) to work together and stay secure.
 
-For decades, these mechanisms have been used to establish consensus among database nodes, application servers, and other enterprise infrastructure. In recent years, new consensus protocols have been invented to allow \gls{cryptoeconomic} systems, such as Ethereum, to agree on the state of the network.
+For decades, these mechanisms have been used to establish consensus among database nodes, application servers and other enterprise infrastructure. In recent years, new consensus protocols have been invented to allow \gls{cryptoeconomic} systems, such as Ethereum, to agree on the state of the network.
 
 A consensus mechanism in a cryptoeconomic system also helps prevent certain kinds of economic attacks. In theory, an attacker can compromise consensus by controlling 51\% of the network. Consensus mechanisms are designed to make this "\gls{51attack}" unfeasible. Different mechanisms are engineered to solve this security problem differently. Current the Ethereum Blockchain, like bitcoin, uses a proof-of-work (PoW) consensus mechanism, however Ethereum community has plans to upgrade to proof-of-stake (PoS) in the future\cite{ethereumcommunityEthereumDevelopmentDocumentation}. Here's a description of both mechanisms:
 
@@ -95,7 +95,7 @@ A dapp has its backend code running on a decentralized peer-to-peer network. Con
 A dapp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
 
 \begin{description}
-\item[Decentralized] means they are independent, and no one can control them as a group.
+\item[Decentralized] means they are independent and no one can control them as a group.
 \item[Deterministic] they perform the same function irrespective of the environment they are executed.
 \item[Turing complete] which means given the required resources, the dapp can perform any action.
 \item[Isolated] which means they are executed in a virtual environment known as Ethereum Virtual Machine so that if the smart contract happens to have a bug, it won’t hamper the normal functioning of the Blockchain network.
@@ -137,7 +137,7 @@ Importantly, contracts only run if they are called by a transaction. All smart c
 
 \section{Web Applications}
 
-A web application (or web app) is application software that runs on a web server, unlike computer-based software programs that are run locally on the operating system (OS) of the device. Web applications are accessed by the user through a web browser with an active network connection. These applications are programmed using a client–server modeled structure—the user ("client") is provided services through an off-site server that is hosted by a third-party. Examples of commonly-used web applications include: web-mail, online retail sales, online banking, and online auctions.
+A web application (or web app) is application software that runs on a web server, unlike computer-based software programs that are run locally on the operating system (OS) of the device. Web applications are accessed by the user through a web browser with an active network connection. These applications are programmed using a client–server modeled structure—the user ("client") is provided services through an off-site server that is hosted by a third-party. Examples of commonly-used web applications include: web-mail, online retail sales, online banking and online auctions.
 
 \subsection{Structure}
 
@@ -151,7 +151,7 @@ There are some who view a web application as a two-tier architecture. This can b
 
 An emerging strategy for application software companies is to provide web access to software previously distributed as local applications. Depending on the type of application, it may require the development of an entirely different browser-based interface, or merely adapting an existing application to use different presentation technology. These programs allow the user to pay a monthly or yearly fee for use of a software application without having to install it on a local hard drive. A company which follows this strategy is known as an application service provider (ASP), and ASPs are currently receiving much attention in the software industry.
 
-Security breaches on these kinds of applications are a major concern because it can involve both enterprise information and private customer data. Protecting these assets is an important part of any web application and there are some key operational areas that must be included in the development process. This includes processes for authentication, authorization, asset handling, input, and logging and auditing. Building security into the applications from the beginning can be more effective and less disruptive in the long run.
+Security breaches on these kinds of applications are a major concern because it can involve both enterprise information and private customer data. Protecting these assets is an important part of any web application and there are some key operational areas that must be included in the development process. This includes processes for authentication, authorization, asset handling, input and logging and auditing. Building security into the applications from the beginning can be more effective and less disruptive in the long run.
 
 Cloud computing model web applications are software as a service (SaaS). There are business applications provided as SaaS for enterprises for a fixed or usage-dependent fee. Other web applications are offered free of charge, often generating income from advertisements shown in web application interface\cite{curtisfranklinjrTopTipsSecure2011}.
 
