@@ -1,8 +1,27 @@
 \chapter{Contribution \& system design}
-\section{Work objectives}
-\section{System Design}
 
-In this section, we introduce our proposed voting system that aims to solve some of the barriers that traditional voting systems have.
+This chapter presents the central contribution of this work. First we start by presenting our objectives and move into introducing our creation, with diagrams, figures and descriptions.
+
+\section{Work objectives}
+
+The goal of this work is to propose a decentralized electronic voting system. The central piece to creating this system is its design and architecture, so after reviewing and analyzing similar proposed works \cite{khouryDecentralizedVotingPlatform2018}\cite{angsuchotmeteeBlockVOTEArchitectureBlockchainbased2019}\cite{ahlkvistDecentralizedVotingSystem2019} and traditional voting practices, we created our own design that remedies some of what we perceived to be shortcomings in previous works.
+
+\section{Literature \& related works review}
+
+We present in this section solutions that attempt to integrate Blockchain into electronic voting to enable decentralization of voting services. We then present the main differences between these works and our design and highlight the added value.
+
+\textit{a) Decentralized Voting Platform Based on Ethereum
+Blockchain:} David Khoury et al. discuss in their paper entitled "Decentralized Voting Platform Based on Ethereum
+Blockchain"\cite{khouryDecentralizedVotingPlatform2018} a decentralized voting solution based on Ethereum Blockchain. It states that their solution solves the trust issues by relying on Blockchain technology. Users in this system are authenticated through their mobile phone number and their phones are used to cast their votes. Here is where our approach starts to differ, allowing voters to vote from their own devices exposes the voter to the potential danger of having their authenticated personal devices taken over by malicious parties and votes being cast in their name without their consent. Also, their system architecture relies on a management server that sits below the administrator web interface and carries the interactions with the Blockchain, which makes the system susceptible to \gls{DDoS}s.
+
+\textit{b) BlockVOTE: An Architecture of a Blockchain-based Electronic Voting System:} in this paper entitled "BlockVOTE: An Architecture of a Blockchain-based Electronic Voting System"\cite{angsuchotmeteeBlockVOTEArchitectureBlockchainbased2019}, Chinnapong Angsuchotmetee and Pisal Setthawong propose a decentralized Blockchain-based electronic voting system and then give an analysis of both technical and management aspects on the possibility of adopting the proposed system. BlockVOTE system does not include the entity responsible for authenticating authorized voters, although, in the paper, the authors state that authentication is performed before any vote is cast. Also unlike our system, they propose that a new smart contract is deployed for every new event, while for our design we judge that to be unnecessary and prefer to reuse the same deployed once smart contract.
+ 
+\textit{c) A Decentralized Voting System:} Jack Ahlkvist
+et al. from Chalmers University of Technology investigate in their paper "A Decentralized Voting System"\cite{ahlkvistDecentralizedVotingSystem2019} the possibility of a decentralized voting system and explore the possible challenges regarding privacy, correctness and integrity. Using the Ethereum blockchain and various smart contracts. Their proposed solution stores authorized voters' ID on the Blockchain, which in the case of a national election would mean millions of issued IDs. Storing data on the Blockchain is always more secure and reliable, however, it is also very costly.
+
+\section{System design}
+
+In this section, we introduce our proposed voting system that aims to solve some of the barriers that traditional voting systems have. Also remedy some of the shortcomings we perceived in similar proposed works.
 
 \subsection{Architecture}
 
